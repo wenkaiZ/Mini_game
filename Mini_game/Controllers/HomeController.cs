@@ -15,7 +15,7 @@ namespace Mini_game.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult GamePage()
         {
             return View();
         }
