@@ -1,7 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style type="text/css">
+    p{
+        font-style: italic;
+        color: red;
+    }
+</style>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4"> Welcome</h1>
+    <p>
+        Welcome to the Snake Game.
+        <br /> This game, you can play against your friends and compare the food you eat in the specified time.
+        <br /> Press any buttons except the up, down, left and right buttons to stop and display your score.
+        <br /> If you hit the edge of the browser then you will fail.
+        <br /> Start the game now!
+    </p>
+    <a asp-action="GamePage"> Begin!!!</a><br />
 </div>

@@ -100,7 +100,8 @@ window.onload = function () {
                     ||_head.offsetTop == document.body.clientHeight
                     ||_head.offsetLeft == document.body.clientWidth
                     ){
-                        window.alert("Failure!");
+                        var _length = _stage.getElementsByTagName("div").length-2;
+                        window.alert("Failure! The length of snack is :"+_length);
                         window.location.reload();
                     }
 
@@ -118,6 +119,10 @@ window.onload = function () {
                         _current = e.keyCode;//记忆当前触发的键盘值。以备下一次比较
                         startMove(e.keyCode);
                     }
+                }
+                else{
+                    var _length = _stage.getElementsByTagName("div").length-2;
+                    window.alert("The length of snack is :"+_length);
                 }
             }
         }</script>
