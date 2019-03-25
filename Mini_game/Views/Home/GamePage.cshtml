@@ -38,7 +38,8 @@
             z-index: 0;
         }
     </style>
-    <script type="text/javascript">window.onload = function () {
+    <script type="text/javascript">
+window.onload = function () {
             var _stage = document.getElementsByTagName("body")[0];//获取body元素节点
             var _head = document.getElementById("head");//蛇头
             var _food = null;//表示食物,被吃以后就是蛇身体的一部分;
@@ -74,6 +75,7 @@
 
                 _distance = parseInt((window.getComputedStyle(_head, null)[_direction] || _head.currentStyle[_direction]).match(/\d+/)[0]);
                 function move() {
+                    calculatePos(_cmd);//3计算身体和头部的位置,也就是重新布局
                     if (_cmd == 39 || _cmd == 40) {
                         _distance += 10;
                     } else {
@@ -91,12 +93,15 @@
                         _food.style.backgroundColor = "darkred";//这两句话的顺序不能颠倒
                         createBody();//再次随机出一个食物
                     }
-                    calculatePos(_cmd);//3计算身体和头部的位置,也就是重新布局
+
                     //碰到墙壁失败
                     if(_head.offsetTop == 0
                     ||_head.offsetLeft == 0
+                    ||_head.offsetTop == document.body.clientHeight
+                    ||_head.offsetLeft == document.body.clientWidth
                     ){
                         window.alert("Failure!");
+                        window.location.reload();
                     }
 
                     _timer = window.setTimeout(move, 100);
@@ -120,10 +125,10 @@
 
 <body>
     <div id="head"></div>
-    <div class="snack" style="left:-20px; top:10px;"></div>
-    <div class="snack" style="left:-20px; top:10px;"></div>
-    <div class="snack" style="left:-20px; top:10px;"></div>
-    <div class="snack" style="left:-20px; top:10px;"></div>
+    <div class="snack" style="left:190px; top:200px;"></div>
+    <div class="snack" style="left:180px; top:200px;"></div>
+    <div class="snack" style="left:170px; top:200px;"></div>
+    <div class="snack" style="left:160px; top:200px;"></div>
 
 
 </body>
